@@ -1,0 +1,45 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var city = "Delhi"
+    @State private var temperature = "Tap to fetch"
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("WeatherNow")
+                .font(.largeTitle)
+                .bold()
+
+            TextField("Enter City", text: $city)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
+            Button("Get Weather") {
+                fetchWeather()
+            }
+
+            Text(temperature)
+                .font(.title)
+        }
+        .padding()
+    }
+
+    func fetchWeather() {
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=demo&units=metric"
+
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            if let data = data {
+                if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let main = json["main"] as? [String: Any],
+                   let temp = main["temp"] {
+                    
+                    DispatchQueue.main.async {
+                        self.temperature = "\(temp) °C"
+                    }
+                }
+            }
+        }.resume()
+    }
+}
