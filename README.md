@@ -1,34 +1,32 @@
-# WeatherNow - iOS App (SwiftUI)
+# CabSync - Employee Transport App (iOS)
 
-WeatherNow is a beginner iOS application designed to fetch and display real-time weather data using API integration.
+CabSync is an iOS application designed to simplify employee transportation and ride management within organizations.
 
 ## Features
-- Search weather by city name
-- Fetch real-time data using REST API
-- JSON parsing for temperature display
-- Clean UI concept using SwiftUI
+- Employee ride booking interface
+- Pickup and drop location input
+- Basic route and scheduling concept
+- API-based data handling (conceptual implementation)
 
 ## Tech Stack
-- Swift (Learning)
-- SwiftUI (Learning)
-- REST API
-- URLSession
+- Swift
+- SwiftUI
+- REST APIs
+- JSON Parsing
 
 ## How It Works
-1. User enters city name
-2. App sends API request
-3. Receives JSON response
-4. Parses temperature data
-5. Displays result on UI
+1. Employee selects pickup & drop location
+2. App sends ride request to backend
+3. Backend assigns cab and route
+4. App displays ride details and status
 
 ## Status
-🚧 Currently in development and learning phase
+Completed as a foundational prototype with scope for enhancements
 
-## Future Improvements
-- Add real API key
-- Improve UI/UX
-- Add error handling
-- Show weather details like humidity and wind
+## Future Enhancements
+- Live tracking with maps
+- Driver details & notifications
+- Ride history & analytics
 
 ## Author
 Chinmay Sachan
